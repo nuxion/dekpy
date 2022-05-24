@@ -94,12 +94,14 @@ if __name__ == "__main__":
     client = Client()
 
     msg = "hello world"
-    # 1 client request a key to encrypt
+    # 1 client request a key
     plain, key = server.get_dek()
-    # 2 client encrypt the msg and wrap with a encrypted key
+    # 2 client encrypts the msg with plain key (DEK) and wrap it with the encrypted key (KEK)
+    # provided by the server
     wrapped = client.encrypt(msg, plain, key)
-    # 3 client ask to decypt the msg:
+    # 3 client sends the encrypted key (KEK) to the server
+    # and the server respond with the plain key (DEK)
     plain_key = server.get_plain_dek(wrapped["key"])
-    # 4 finally client decrypt the message
+    # 4 finally client decrypts the message
     original = client.decrypt(wrapped["msg"], plain_key)
     print("Original message: ", original)
