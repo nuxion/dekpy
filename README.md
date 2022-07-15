@@ -7,4 +7,4 @@ A simple poc to understand how KMS systems like [Google](https://cloud.google.co
 - https://cloud.google.com/kms/docs/envelope-encryption
 - https://smallstep.com/blog/everything-pki/
 - https://security.stackexchange.com/questions/93886/dek-kek-and-master-key-simple-explanation
-
+- https://docs.microsoft.com/en-us/azure/storage/common/storage-client-side-encryption-python?tabs=python

@@ -65,9 +65,11 @@ class Server:
         return self.kek.encrypt(dek_key)
 
     def get_dek(self):
+        # reading Microsoft docs, the KEK shouldn't be shared with the user
         plain_key = random_str()
         encrypted = self._encrypt(plain_key)
         self.store.update({encrypted: plain_key})
+        # return plain_key, kek_identifier
 
         return plain_key, encrypted
 
